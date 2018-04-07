@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>JuliusAwen</Authors>
+    <Company>MiracleProductions</Company>
   </PropertyGroup>
 
   <ItemGroup>
