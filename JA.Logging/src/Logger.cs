@@ -87,7 +87,7 @@ namespace JA.Logging
 					LogLevel.Trace,
 					DateTime.Now,
 					this.ParseSourceClassNameFromSourceFilePath(sourceFilePath),
-					sourceMemberName,
+					this.FormatSourceMemberName(sourceMemberName),
 					sourceLineNumber,
 					message
 				);
@@ -113,7 +113,7 @@ namespace JA.Logging
 					LogLevel.Debug,
 					DateTime.Now,
 					this.ParseSourceClassNameFromSourceFilePath(sourceFilePath),
-					sourceMemberName,
+					this.FormatSourceMemberName(sourceMemberName),
 					sourceLineNumber,
 					message
 				);
@@ -139,7 +139,7 @@ namespace JA.Logging
 					LogLevel.Information,
 					DateTime.Now,
 					this.ParseSourceClassNameFromSourceFilePath(sourceFilePath),
-					sourceMemberName,
+					this.FormatSourceMemberName(sourceMemberName),
 					sourceLineNumber,
 					message
 				);
@@ -165,7 +165,7 @@ namespace JA.Logging
 					LogLevel.Warning,
 					DateTime.Now,
 					this.ParseSourceClassNameFromSourceFilePath(sourceFilePath),
-					sourceMemberName,
+					this.FormatSourceMemberName(sourceMemberName),
 					sourceLineNumber,
 					message
 				);
@@ -191,7 +191,7 @@ namespace JA.Logging
 					LogLevel.Error,
 					DateTime.Now,
 					this.ParseSourceClassNameFromSourceFilePath(sourceFilePath),
-					sourceMemberName,
+					this.FormatSourceMemberName(sourceMemberName),
 					sourceLineNumber,
 					message
 				);
@@ -217,7 +217,7 @@ namespace JA.Logging
 					LogLevel.Critical,
 					DateTime.Now,
 					this.ParseSourceClassNameFromSourceFilePath(sourceFilePath),
-					sourceMemberName,
+					this.FormatSourceMemberName(sourceMemberName),
 					sourceLineNumber,
 					message
 				);
@@ -226,12 +226,14 @@ namespace JA.Logging
 			}
 		}
 
+		private string FormatSourceMemberName(string sourceMemberName)
+		{
+			return sourceMemberName.Equals(".ctor") ? "Constructor" : sourceMemberName;
+		}
+
 		private string ParseSourceClassNameFromSourceFilePath(string sourceFilePath)
 		{
-			var sourceClassName = sourceFilePath.Substring(sourceFilePath.LastIndexOf("\\") + 1);
-			sourceClassName = sourceClassName.Remove(sourceClassName.Length - 3);
-
-			return sourceClassName;
+			return sourceFilePath.Substring(sourceFilePath.LastIndexOf("\\") + 1).Split('.')[0];			
 		}
 
 		private void Log(Object obj)
