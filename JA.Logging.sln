@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JA.Logging", "JA.Logging\JA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoggingTests", "LoggingTests\LoggingTests.csproj", "{FED85228-DC8B-4FD0-AED7-ABE5CA10E74C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JA.DefaultLogTargets", "JA.DefaultLogTargets\JA.DefaultLogTargets.csproj", "{D15CB696-DCA3-448C-A006-59A9E3F645AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JA.DefaultLogTargets", "JA.DefaultLogTargets\JA.DefaultLogTargets.csproj", "{D15CB696-DCA3-448C-A006-59A9E3F645AB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

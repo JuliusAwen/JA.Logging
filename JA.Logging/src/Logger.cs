@@ -266,7 +266,7 @@ namespace JA.Logging
 
 		private bool IsMessageToBeLogged(LogTarget logTarget, LogLevel logLevel)
 		{
-			return ((logLevel >= logTarget.LogLevel && !logTarget.LogLevelBlacklist.Contains(logLevel)) || logTarget.LogLevelWhitelist.Contains(logLevel)) && logLevel != LogLevel.None;
+			return (logLevel != LogLevel.None && !logTarget.LogLevelBlacklist.Contains(logLevel) && (logLevel >= logTarget.LogLevel || logTarget.LogLevelWhitelist.Contains(logLevel)));
 		}
 	}
 }

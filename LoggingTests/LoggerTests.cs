@@ -548,6 +548,52 @@ namespace Tests
 		}
 
 		[TestMethod]
+		public void LoggerSameLogLevelInBothWhitelistAndBlacklistTest()
+		{
+			var logLevelBlacklist = new List<LogLevel>
+			{
+				LogLevel.Trace,
+				LogLevel.Debug,
+				LogLevel.Information,
+				LogLevel.Warning,
+				LogLevel.Error
+			};
+
+			var logLevelWhitelist = new List<LogLevel>
+			{
+				LogLevel.Trace,
+				LogLevel.Debug,
+				LogLevel.Information,
+				LogLevel.Warning,
+				LogLevel.Error
+			};
+
+			var logTarget = new TestLogTarget(LogLevel.Trace, logLevelBlacklist, logLevelWhitelist, null);
+
+			var logTargets = new List<LogTarget>
+			{
+				logTarget
+			};
+
+			var logger = new Logger(logTargets, LogFrequency);
+
+
+			this.LogTestMessages(logger);
+			Thread.Sleep(SleepTime);
+
+			Assert.AreEqual(1, logTarget.LogEntries.Count);
+
+			var logEntriesByLogLevel = this.GetLogEntriesByLogLevel(logTarget);
+
+			Assert.IsFalse(logEntriesByLogLevel.ContainsKey(LogLevel.Trace));
+			Assert.IsFalse(logEntriesByLogLevel.ContainsKey(LogLevel.Debug));
+			Assert.IsFalse(logEntriesByLogLevel.ContainsKey(LogLevel.Information));
+			Assert.IsFalse(logEntriesByLogLevel.ContainsKey(LogLevel.Warning));
+			Assert.IsFalse(logEntriesByLogLevel.ContainsKey(LogLevel.Error));
+			Assert.IsTrue(logEntriesByLogLevel.ContainsKey(LogLevel.Critical));
+		}
+
+		[TestMethod]
 		public void LoggerLogTargetTerminationTest()
 		{
 			var logTarget = new TestLogTarget(LogLevel.Trace, null, null, DateTime.Now.AddMilliseconds(SleepTime * 2));
