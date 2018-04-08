@@ -80,9 +80,7 @@ namespace JA.Logging
 		public void Trace(string message, [CallerMemberName] string sourceMemberName = "", [CallerFilePath] string sourceFilePath = "", [CallerLineNumber] int sourceLineNumber = 0)
 		{
 			if(message != null)
-			{
-				var sourceClassName = this.ParseSourceClassNameFromSourceFilePath(sourceFilePath);
-
+			{				
 				var logEntry = new LogEntry(
 					LogLevel.Trace,
 					DateTime.Now,
@@ -107,8 +105,6 @@ namespace JA.Logging
 		{
 			if(message != null)
 			{
-				var sourceClassName = this.ParseSourceClassNameFromSourceFilePath(sourceFilePath);
-
 				var logEntry = new LogEntry(
 					LogLevel.Debug,
 					DateTime.Now,
@@ -133,8 +129,6 @@ namespace JA.Logging
 		{
 			if(message != null)
 			{
-				var sourceClassName = this.ParseSourceClassNameFromSourceFilePath(sourceFilePath);
-
 				var logEntry = new LogEntry(
 					LogLevel.Information,
 					DateTime.Now,
@@ -159,8 +153,6 @@ namespace JA.Logging
 		{
 			if(message != null)
 			{
-				var sourceClassName = this.ParseSourceClassNameFromSourceFilePath(sourceFilePath);
-
 				var logEntry = new LogEntry(
 					LogLevel.Warning,
 					DateTime.Now,
@@ -185,8 +177,6 @@ namespace JA.Logging
 		{
 			if(message != null)
 			{
-				var sourceClassName = this.ParseSourceClassNameFromSourceFilePath(sourceFilePath);
-
 				var logEntry = new LogEntry(
 					LogLevel.Error,
 					DateTime.Now,
@@ -209,8 +199,6 @@ namespace JA.Logging
 		/// <param name="sourceLineNumber">Line number from which the logger was called (automatically generated).</param>
 		public void Critical(string message, [CallerMemberName] string sourceMemberName = "", [CallerFilePath] string sourceFilePath = "", [CallerLineNumber] int sourceLineNumber = 0)
 		{
-			var sourceClassName = this.ParseSourceClassNameFromSourceFilePath(sourceFilePath);
-
 			if(message != null)
 			{
 				var logEntry = new LogEntry(

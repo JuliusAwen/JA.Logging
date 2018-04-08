@@ -90,7 +90,7 @@ namespace JA.Logging
 		/// <param name="logLevelBlacklist">List of log levels allways to be logged.</param>
 		/// <param name="logLevelWhitelist">List of log levels never to be logged.</param>
 		/// <param name="expirationTime">Time at whitch  the log target expires.</param>		
-		public LogTarget(LogLevel logLevel, List<LogLevel> logLevelBlacklist, List<LogLevel> logLevelWhitelist, DateTime? expirationTime)
+		public LogTarget(LogLevel logLevel, List<LogLevel> logLevelWhitelist, List<LogLevel> logLevelBlacklist, DateTime? expirationTime)
 		{
 			this.LogLevel = logLevel;
 			this.LogLevelBlacklist = logLevelBlacklist;
