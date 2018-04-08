@@ -17,7 +17,7 @@ namespace JA.DefaultLogTargets.src
 		/// <param name="logLevelWhitelist">List of log levels never to be logged.</param>
 		/// <param name="expirationTime">Time at whitch  the log target expires.</param>	
 		public SystemConsole(LogLevel logLevel, List<LogLevel> logLevelBlacklist, List<LogLevel> logLevelWhitelist, DateTime? expirationTime)
-			: base(logLevel, logLevelBlacklist, logLevelWhitelist, expirationTime)
+			: base(logLevel, logLevelWhitelist, logLevelBlacklist, expirationTime)
 		{
 		}
 
