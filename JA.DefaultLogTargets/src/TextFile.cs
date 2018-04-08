@@ -20,7 +20,7 @@ namespace JA.DefaultLogTargets
 		/// <param name="logLevelBlacklist">List of log levels allways to be logged.</param>
 		/// <param name="logLevelWhitelist">List of log levels never to be logged.</param>
 		/// <param name="expirationTime">Time at whitch  the log target expires.</param>	
-		public TextFile(StreamWriter streamwriter, LogLevel logLevel, List<LogLevel> logLevelBlacklist, List<LogLevel> logLevelWhitelist, DateTime? expirationTime)
+		public TextFile(StreamWriter streamwriter, LogLevel logLevel, List<LogLevel> logLevelWhitelist, List<LogLevel> logLevelBlacklist, DateTime? expirationTime)
 			: base(logLevel, logLevelWhitelist, logLevelBlacklist, expirationTime)
 		{
 			this.file = streamwriter;
